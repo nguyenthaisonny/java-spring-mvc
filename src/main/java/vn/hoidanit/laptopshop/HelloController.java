@@ -7,7 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HelloController {
     @GetMapping("/")
     public String index() {
-        return "Hello World";
+        return "Hello World 2";
+    }
+
+    @GetMapping("/user")
+    public String userPage() {
+        return "user";
+    }
+
+    @GetMapping("/admin")
+    public String adminPage() {
+        return "admin";
     }
 
 }
