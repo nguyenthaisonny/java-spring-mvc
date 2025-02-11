@@ -15,11 +15,23 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<User> getAllUser() {
+    public List<User> getAllUsers() {
         return this.userRepository.findAll();
+    }
+
+    public User getUserById(long id) {
+        return this.userRepository.findById(id);
     }
 
     public User handleCreateUser(User user) {
         return this.userRepository.save(user);
+    }
+
+    public User handleUpdateUser(User user) {
+        return this.userRepository.save(user);
+    }
+
+    public void handleDeleteUser(long id) {
+        this.userRepository.deleteById(id);
     }
 }

@@ -6,7 +6,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Create Users</title>
+                <title>Table Users</title>
                 <!-- Latest compiled and minified CSS -->
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
                 <!-- Latest compiled JavaScript -->
@@ -32,8 +32,6 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Full Name</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Address</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -43,13 +41,11 @@
                                     <td>${user.id}</td>
                                     <td>${user.fullName}</td>
                                     <td>${user.email}</td>
-                                    <td>${user.phone}</td>
-                                    <td>${user.address}</td>
                                     <td>
                                         <div class="d-flex justify-content-start gap-2">
-                                            <button class="btn btn-info">View</button>
-                                            <button class="btn btn-warning">Update</button>
-                                            <button class="btn btn-danger">Delete</button>
+                                            <a href="/admin/user/${user.id}" class="btn btn-info">View</a>
+                                            <a href="/admin/user/update/${user.id}" class="btn btn-warning">Update</a>
+                                            <a href="/admin/user/delete/${user.id}" class="btn btn-danger">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
