@@ -85,10 +85,7 @@ public class UserController {
 
     @PostMapping("/delete/{id}")
     public String deleteUser(Model model, @PathVariable long id) {
-        System.err.println(id);
         User currentUser = this.userService.getUserById(id);
-        System.err.println(currentUser);
-
         if (currentUser != null) {
             this.userService.handleDeleteUser(id);
         }
