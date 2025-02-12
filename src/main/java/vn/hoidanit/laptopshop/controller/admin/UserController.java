@@ -1,4 +1,4 @@
-package vn.hoidanit.laptopshop.controller;
+package vn.hoidanit.laptopshop.controller.admin;
 
 import java.util.List;
 
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/admin/user")
@@ -18,14 +17,6 @@ public class UserController {
 
     public UserController(UserService userService) {
         this.userService = userService;
-    }
-
-    @GetMapping("/")
-    public String getHomePage(Model model) {
-        List<User> users = this.userService.getAllUsers();
-        model.addAttribute("users", users);
-        System.err.println(users);
-        return "sonny";
     }
 
     @GetMapping("/create")
@@ -41,10 +32,10 @@ public class UserController {
     }
 
     @GetMapping
-    public String getUser(Model model) {
+    public String getUserPage(Model model) {
         List<User> users = this.userService.getAllUsers();
         model.addAttribute("users", users);
-        return "admin/user/table-user";
+        return "admin/user/show";
     }
 
     @GetMapping("/{id}")
@@ -53,7 +44,7 @@ public class UserController {
         User user = this.userService.getUserById(id);
         model.addAttribute("user", user);
         model.addAttribute("id", id);
-        return "admin/user/show";
+        return "admin/user/detail";
     }
 
     @GetMapping("/update/{id}")

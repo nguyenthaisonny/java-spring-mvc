@@ -9,7 +9,8 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <meta name="description" content="nguyenthaisonny - Dự án laptopshop" />
                 <meta name="author" content="nguyenthaisonny" />
-                <title>Dashboard - nguyenthaisonny</title>
+                <title>User detail: ${id}</title>
+
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
@@ -33,16 +34,23 @@
                                 </ol>
                                 <div>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <h3>Delete User: ${id}</h3>
-                                    </div>
-                                    <div class="alert alert-danger" role="alert">
-                                        Are you sure to delete this user?
+                                        <h3>User Details ${id}</h3>
                                     </div>
                                     <hr />
-                                    <form action="/admin/user/delete/${id}" method="post">
-                                        <button type="submit" class="btn btn-success mt-2">Delete</a>
-                                    </form>
+                                    <div class="card" style="width: 60%;">
+                                        <div class="card-header">
+                                            User Information
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">Id: ${id}</li>
+                                            <li class="list-group-item">Email: ${user.email} </li>
+                                            <li class="list-group-item">Full Name: ${user.fullName} </li>
+                                            <li class="list-group-item">Phone: ${user.phone} </li>
+                                            <li class="list-group-item">Address: ${user.address} </li>
+                                        </ul>
+                                    </div>
                                 </div>
+                                <a href="/admin/user" class="btn btn-success mt-2">Back</a>
                         </main>
                         <jsp:include page="../layout/footer.jsp" />
 
