@@ -19,7 +19,6 @@
                 <jsp:include page="../layout/header.jsp" />
                 <div id="layoutSidenav">
                     <jsp:include page="../layout/sidebar.jsp" />
-
                     <div id="layoutSidenav_content">
                         <main>
                             <div class="container-fluid px-4">
@@ -37,17 +36,23 @@
                                         <h3>User Details ${id}</h3>
                                     </div>
                                     <hr />
-                                    <div class="card" style="width: 60%;">
-                                        <div class="card-header">
-                                            User Information
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <img style="max-height: 250px; display: none;" alt="avatar preview"
+                                                id="avatarPreview" />
                                         </div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">Id: ${id}</li>
-                                            <li class="list-group-item">Email: ${user.email} </li>
-                                            <li class="list-group-item">Full Name: ${user.fullName} </li>
-                                            <li class="list-group-item">Phone: ${user.phone} </li>
-                                            <li class="list-group-item">Address: ${user.address} </li>
-                                        </ul>
+                                        <div class="card col-12 col-md-6" style="width: 60%;">
+                                            <div class="card-header">
+                                                User Information
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Id: ${id}</li>
+                                                <li class="list-group-item">Email: ${user.email} </li>
+                                                <li class="list-group-item">Full Name: ${user.fullName} </li>
+                                                <li class="list-group-item">Phone: ${user.phone} </li>
+                                                <li class="list-group-item">Address: ${user.address} </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                                 <a href="/admin/user" class="btn btn-success mt-2">Back</a>

@@ -47,6 +47,7 @@
                                                 <th scope="col">#</th>
                                                 <th scope="col">Full Name</th>
                                                 <th scope="col">Email</th>
+                                                <th scope="col">Role</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -56,6 +57,7 @@
                                                     <td>${user.id}</td>
                                                     <td>${user.fullName}</td>
                                                     <td>${user.email}</td>
+                                                    <td>${user.getRole().getName()}</td>
                                                     <td>
                                                         <div class="d-flex justify-content-start gap-2">
                                                             <a href="/admin/user/${user.id}"
