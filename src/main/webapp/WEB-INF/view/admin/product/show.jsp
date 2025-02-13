@@ -32,6 +32,52 @@
                                 </li>
                                 <li class="breadcrumb-item active">/ <span></span> Products</li>
                             </ol>
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3>Table Products</h3>
+                                    <a href="/admin/product/create">
+                                        <button class="btn btn-success">
+                                            Create Product
+                                        </button>
+                                    </a>
+                                </div>
+                                <hr />
+                                <table class="table table-hover table-bordered">
+                                    <table class=" table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Price</th>
+                                                <th>Factory</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- <c:forEach var="user" items="${users}">
+                                                <tr>
+                                                    <td>${user.id}</td>
+                                                    <td>${user.fullName}</td>
+                                                    <td>${user.email}</td>
+                                                    <td>${user.getRole().getName()}</td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-start gap-2">
+                                                            <a href="/admin/user/${user.id}"
+                                                                class="btn btn-info">View</a>
+                                                            <a href="/admin/user/update/${user.id}"
+                                                                class="btn btn-warning">Update</a>
+                                                            <a href="/admin/user/delete/${user.id}"
+                                                                class="btn btn-danger">Delete</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach> -->
+                                        </tbody>
+                                    </table>
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </main>
                     <jsp:include page="../layout/footer.jsp" />
