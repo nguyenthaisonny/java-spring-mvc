@@ -28,11 +28,11 @@ public class User {
     private String email;
 
     @NotNull
-    @Min(2)
+    @Size(min = 3, message = "Password must be at least 3 digits")
     private String password;
 
     @NotNull
-    @Min(2)
+    @Size(min = 3, message = "Password must be at least 3 digits")
     private String fullName;
     private String address;
     private String phone;

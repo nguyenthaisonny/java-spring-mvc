@@ -55,11 +55,30 @@
                                                 modelAttribute="newUser" class="row" enctype="multipart/form-data">
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class="form-label">Email:</label>
-                                                    <form:input type="email" class="form-control" path="email" />
+                                                    <c:set var="errorName">
+                                                        <form:errors path="email" />
+                                                    </c:set>
+
+
+                                                    <form:input type="text"
+                                                        class="form-control ${not empty errorName? 'is-invalid':''}"
+                                                        path="email" />
+
+                                                    <form:errors path="email" cssClass="invalid-feedback" />
+
+
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6"">
                                                     <label class=" form-label">Password:</label>
-                                                    <form:input type="password" class="form-control" path="password" />
+                                                    <c:set var="nameHasBindError">
+                                                        <form:errors path="password" />
+                                                    </c:set>
+                                                    <form:input type="password"
+                                                        class="form-control ${not empty nameHasBindError? 'is-invalid':''}"
+                                                        path="password" />
+
+                                                    <form:errors path="password" cssClass="invalid-feedback" />
+
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class=" form-label">Phone number:</label>
@@ -67,7 +86,15 @@
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class="form-label">Full Name:</label>
-                                                    <form:input type="text" class="form-control" path="fullName" />
+                                                    <c:set var="nameHasBindError">
+                                                        <form:errors path="fullName" />
+                                                    </c:set>
+                                                    <form:input type="fullName"
+                                                        class="form-control ${not empty nameHasBindError? 'is-invalid':''}"
+                                                        path="fullName" />
+
+                                                    <form:errors path="fullName" cssClass="invalid-feedback" />
+
                                                 </div>
                                                 <div class="mb-3 col-12">
                                                     <label class="form-label">Address:</label>
