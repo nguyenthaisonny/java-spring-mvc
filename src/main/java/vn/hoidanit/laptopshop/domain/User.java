@@ -23,7 +23,8 @@ public class User {
     private String address;
     private String phone;
     private String avatar;
-
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
@@ -43,9 +44,6 @@ public class User {
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
-
-    @OneToMany(mappedBy = "user")
-    private List<Order> orders;
 
     public long getId() {
         return id;
