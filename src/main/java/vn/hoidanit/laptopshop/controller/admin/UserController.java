@@ -1,22 +1,31 @@
 package vn.hoidanit.laptopshop.controller.admin;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import jakarta.servlet.ServletContext;
 import vn.hoidanit.laptopshop.domain.User;
+import vn.hoidanit.laptopshop.service.UploadService;
 import vn.hoidanit.laptopshop.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 @RequestMapping("/admin/user")
 public class UserController {
     private final UserService userService;
+    private final UploadService uploadService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UploadService uploadService) {
         this.userService = userService;
+        this.uploadService = uploadService;
     }
 
     @GetMapping("/create")
@@ -26,8 +35,11 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public String createUser(@ModelAttribute("newUser") User user) {
-        this.userService.handleCreateUser(user);
+    public String createUser(@ModelAttribute("newUser") User user, @RequestParam("userFile") MultipartFile file) {
+        String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
+        System.err.println(avatar);
+        // this.userService.handleCreateUser(user);
+
         return "redirect:/admin/user";
     }
 
