@@ -85,8 +85,15 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public String updateUser(@ModelAttribute("newUser") User user) {
-        System.err.println(user.getId() + "id");
+    public String updateUser(@ModelAttribute("newUser") User user,
+            BindingResult newUserBindingResult) {
+        List<FieldError> errors = newUserBindingResult.getFieldErrors();
+        for (FieldError error : errors) {
+            System.out.println(error.getField() + " - " + error.getDefaultMessage());
+        }
+        if (newUserBindingResult.hasErrors()) {
+            return "/admin/user/update";
+        }
         User currentUser = this.userService.getUserById(user.getId());
         if (currentUser != null) {
             currentUser.setAddress(user.getAddress());
@@ -112,4 +119,5 @@ public class UserController {
 
         return "redirect:/admin/user";
     }
+
 }

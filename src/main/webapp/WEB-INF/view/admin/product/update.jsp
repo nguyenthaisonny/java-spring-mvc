@@ -16,6 +16,12 @@
                 <script>
                     $(document).ready(() => {
                         const avatarFile = $("#avatarFile");
+                        const orgImage = "${newProduct.image}";
+                        if (orgImage) {
+                            const urlImage = "/image/product/" + orgImage;
+                            $("#avatarPreview").attr("src", urlImage);
+                            $("#avatarPreview").css({ "display": "block" });
+                        }
                         avatarFile.change(function (e) {
                             const imgURL = URL.createObjectURL(e.target.files[0]);
                             $("#avatarPreview").attr("src", imgURL);
@@ -41,9 +47,9 @@
                                 <div class="mt-5">
                                     <div class="row">
                                         <div class="col-md-6 col-12 mx-auto">
-                                            <h3>Create a product</h3>
+                                            <h3>Update product ${id}</h3>
                                             <hr />
-                                            <form:form method="post" action="/admin/product/create" class="row"
+                                            <form:form method="post" action="/admin/product/update" class="row"
                                                 enctype="multipart/form-data" modelAttribute="newProduct">
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class="form-label">Name:</label>
@@ -51,6 +57,10 @@
                                                         <form:errors path="name" />
                                                     </c:set>
 
+                                                    <div class="mb-3" style="display: none;">
+                                                        <label class="form-label">Id:</label>
+                                                        <form:input type="text" class="form-control" path="id" />
+                                                    </div>
 
                                                     <form:input type="text"
                                                         class="form-control ${not empty errorName? 'is-invalid':''}"
@@ -108,7 +118,7 @@
                                                     </c:set>
 
 
-                                                    <form:input type="text"
+                                                    <form:input type="number"
                                                         class="form-control ${not empty errorName? 'is-invalid':''}"
                                                         path="quantity" />
 
@@ -149,7 +159,7 @@
                                                 </div>
                                                 <div class="col-12 mb-5">
                                                     <a href="/admin/product" class="btn btn-success">Back</a>
-                                                    <button type="submit" class="btn btn-primary">Create</button>
+                                                    <button type="submit" class="btn btn-primary">Update</button>
                                                 </div>
                                             </form:form>
                                         </div>

@@ -5,6 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "products")
@@ -13,12 +16,24 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @NotEmpty(message = "Email cannot be empty")
     private String name;
+
+    @Min(value = 0, message = "Price must be at least 0")
     private double price;
+
     private String image;
+
+    @NotEmpty(message = "Detail description cannot be empty")
     private String detailDesc;
+
+    @NotEmpty(message = "Short description cannot be empty")
     private String shortDesc;
+
+    @Min(value = 1, message = "Quantity must be at least 1")
     private long quantity;
+
     private long sold;
     private String factory;
     private String target;
@@ -101,5 +116,13 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPriceToString() {
+        return new Double(price).toString();
+    }
+
+    public String getQuantityToString() {
+        return new Long(quantity).toString();
     }
 }

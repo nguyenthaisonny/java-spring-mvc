@@ -40,7 +40,7 @@
                                             <form:form method="post" action="/admin/user/update"
                                                 modelAttribute="newUser">
                                                 <div class="mb-3" style="display: none;">
-                                                    <label class="form-label">Email:</label>
+                                                    <label class="form-label">Id:</label>
                                                     <form:input type="text" class="form-control" path="id" />
                                                 </div>
                                                 <div class="mb-3">

@@ -22,25 +22,25 @@
                     <div id="layoutSidenav_content">
                         <main>
                             <div class="container-fluid px-4">
-                                <h1 class="mt-4">Manage Users</h1>
+                                <h1 class="mt-4">Manage Product</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li>
 
                                         <a href="/admin">Dashboard </a>
                                         <span> </span>
                                     </li>
-                                    <li class="breadcrumb-item active">/ <span></span> Users</li>
+                                    <li class="breadcrumb-item active">/ <span></span> Product</li>
                                 </ol>
                                 <div>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <h3>Delete User: ${id}</h3>
+                                        <h3>Delete Product: ${id}</h3>
                                     </div>
                                     <div class="alert alert-danger" role="alert">
-                                        Are you sure to delete this user?
+                                        Are you sure to delete this Product?
                                     </div>
                                     <hr />
-                                    <form action="/admin/user/delete/${id}" method="post">
-                                        <a href="/admin/user" class="btn btn-success">Back</a>
+                                    <form action="/admin/product/delete/${id}" method="post">
+                                        <a href="/admin/product" class="btn btn-success">Back</a>
                                         <button type="submit" class="btn btn-danger">Delete</a>
                                     </form>
                                 </div>
