@@ -1,5 +1,6 @@
 package vn.hoidanit.laptopshop.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,6 +9,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "products")
@@ -25,9 +27,10 @@ public class Product {
 
     private String image;
 
+    @NotNull
+    @Column(columnDefinition = "MEDIUMTEXT")
     @NotEmpty(message = "Detail description cannot be empty")
     private String detailDesc;
-
     @NotEmpty(message = "Short description cannot be empty")
     private String shortDesc;
 

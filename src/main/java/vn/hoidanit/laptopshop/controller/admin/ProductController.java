@@ -69,12 +69,8 @@ public class ProductController {
         Product newProduct = this.productService.getProductById(id);
         if (newProduct == null)
             System.out.println("This product is not exist");
-        String imageDb = newProduct.getImage();
-        if (imageDb != "") {
-            String[] parts = imageDb.split("-");
-            String image = parts[1];
-            model.addAttribute("image", image);
-        }
+        model.addAttribute("image", newProduct.getImage());
+
         model.addAttribute("newProduct", newProduct);
         model.addAttribute("id", id);
         return "/admin/product/update";
@@ -82,6 +78,7 @@ public class ProductController {
 
     @PostMapping("/update")
     public String updateProduct(
+            Model model,
             @ModelAttribute("newProduct") @Valid Product product,
             BindingResult newProductBindingResult,
             @RequestParam("productFile") MultipartFile file
@@ -92,6 +89,7 @@ public class ProductController {
             System.out.println(error.getField() + " - " + error.getDefaultMessage());
         }
         if (newProductBindingResult.hasErrors()) {
+            model.addAttribute("image", product.getImage());
             return "/admin/product/update";
         }
         Product productDb = this.productService.getProductById(product.getId());

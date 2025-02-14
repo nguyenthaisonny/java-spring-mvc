@@ -16,7 +16,7 @@
                 <script>
                     $(document).ready(() => {
                         const avatarFile = $("#avatarFile");
-                        const orgImage = "${newProduct.image}";
+                        let orgImage = "${image}";
                         if (orgImage) {
                             const urlImage = "/image/product/" + orgImage;
                             $("#avatarPreview").attr("src", urlImage);
