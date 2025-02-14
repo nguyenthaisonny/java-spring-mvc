@@ -70,20 +70,21 @@
                                                     <div class="row mb-3">
                                                         <div class="col-md-6">
                                                             <div class="form-floating mb-3 mb-md-0">
-                                                                <form:input
-                                                                    class="form-control ${not empty errorPassword ? 'is-invalid' : ''}"
-                                                                    type="password" placeholder="Create a password"
-                                                                    path="password" />
+                                                                <form:input class="form-control" type="password"
+                                                                    placeholder="Create a password" path="password" />
                                                                 <label>Password</label>
-                                                                ${errorPassword}
+
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-floating mb-3 mb-md-0">
-                                                                <form:input class="form-control" type="password"
-                                                                    placeholder="Confirm password"
+                                                                <form:input
+                                                                    class="form-control ${not empty errorPassword ? 'is-invalid' : ''}"
+                                                                    type="password" placeholder="Confirm password"
                                                                     path="confirmPassword" />
                                                                 <label>Confirm Password</label>
+                                                                ${errorPassword}
+
                                                             </div>
                                                         </div>
                                                     </div>
