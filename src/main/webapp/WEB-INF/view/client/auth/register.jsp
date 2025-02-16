@@ -29,10 +29,7 @@
                                             <div class="card-body">
                                                 <form:form method="post" action="/register"
                                                     modelAttribute="registerUser">
-                                                    <c:set var="errorPassword">
-                                                        <form:errors path="confirmPassword"
-                                                            cssClass="invalid-feedback" />
-                                                    </c:set>
+
                                                     <c:set var="errorEmail">
                                                         <form:errors path="email" cssClass="invalid-feedback" />
                                                     </c:set>
@@ -78,12 +75,18 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-floating mb-3 mb-md-0">
+                                                                <c:set var="errorPassword">
+                                                                    <form:errors path="confirmPassword"
+                                                                        cssClass="invalid-feedback" />
+                                                                </c:set>
                                                                 <form:input
                                                                     class="form-control ${not empty errorPassword ? 'is-invalid' : ''}"
                                                                     type="password" placeholder="Confirm password"
                                                                     path="confirmPassword" />
                                                                 <label>Confirm Password</label>
-                                                                ${errorPassword}
+                                                                <form:errors path="confirmPassword"
+                                                                    cssClass="invalid-feedback" />
+
 
                                                             </div>
                                                         </div>
