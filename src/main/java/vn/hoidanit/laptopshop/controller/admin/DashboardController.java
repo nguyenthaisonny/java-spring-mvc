@@ -11,6 +11,6 @@ public class DashboardController {
 
     @GetMapping
     public String getDashboardPage() {
-        return "/admin/dashboard/show";
+        return "admin/dashboard/show";
     }
 }

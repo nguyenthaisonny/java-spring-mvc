@@ -29,7 +29,6 @@ public class User {
     private String email;
 
     @NotNull
-    @StrongPassword()
     private String password;
 
     @NotNull

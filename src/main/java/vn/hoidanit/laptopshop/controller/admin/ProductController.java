@@ -73,7 +73,7 @@ public class ProductController {
 
         model.addAttribute("newProduct", newProduct);
         model.addAttribute("id", id);
-        return "/admin/product/update";
+        return "admin/product/update";
     }
 
     @PostMapping("/update")
@@ -122,7 +122,7 @@ public class ProductController {
     @GetMapping("/delete/{id}")
     public String getDeleteProductPage(Model model, @PathVariable long id) {
         model.addAttribute("id", id);
-        return "/admin/product/delete";
+        return "admin/product/delete";
     }
 
     @PostMapping("/delete/{id}")

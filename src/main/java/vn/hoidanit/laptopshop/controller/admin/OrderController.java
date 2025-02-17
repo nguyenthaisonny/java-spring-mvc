@@ -11,6 +11,6 @@ public class OrderController {
 
     @GetMapping("/order")
     public String getOrderPage() {
-        return "/admin/order/show";
+        return "admin/order/show";
     }
 }

@@ -92,7 +92,7 @@ public class UserController {
             System.out.println(error.getField() + " - " + error.getDefaultMessage());
         }
         if (newUserBindingResult.hasErrors()) {
-            return "/admin/user/update";
+            return "admin/user/update";
         }
         User currentUser = this.userService.getUserById(user.getId());
         if (currentUser != null) {
