@@ -40,6 +40,8 @@
                                     </div>
                                     <hr />
                                     <form action="/admin/user/delete/${id}" method="post">
+                                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
                                         <a href="/admin/user" class="btn btn-success">Back</a>
                                         <button type="submit" class="btn btn-danger">Delete</a>
                                     </form>
