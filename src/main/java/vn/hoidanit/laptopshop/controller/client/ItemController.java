@@ -1,7 +1,10 @@
 package vn.hoidanit.laptopshop.controller.client;
 
+<<<<<<< HEAD
 import java.util.List;
 
+=======
+>>>>>>> fd3a891263df14525f6d62a98ccb5a9e3d7047f7
 import org.springframework.boot.autoconfigure.jms.JmsProperties.Listener.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+<<<<<<< HEAD
 import vn.hoidanit.laptopshop.domain.Cart;
 import vn.hoidanit.laptopshop.domain.CartDetail;
+=======
+>>>>>>> fd3a891263df14525f6d62a98ccb5a9e3d7047f7
 import vn.hoidanit.laptopshop.domain.Product;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.ProductService;
@@ -41,11 +47,16 @@ public class ItemController {
         HttpSession session = request.getSession();
         String email = (String) session.getAttribute("email");
 
+<<<<<<< HEAD
         this.productService.handleAddProductToCart(id, email, session);
+=======
+        this.productService.handleAddProductToCart(id, email);
+>>>>>>> fd3a891263df14525f6d62a98ccb5a9e3d7047f7
 
         return "redirect:/";
     }
 
+<<<<<<< HEAD
     @GetMapping("/cart")
     public String getCartPage(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -65,4 +76,6 @@ public class ItemController {
         return "client/cart/show";
     }
 
+=======
+>>>>>>> fd3a891263df14525f6d62a98ccb5a9e3d7047f7
 }

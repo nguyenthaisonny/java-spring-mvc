@@ -4,7 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
 import jakarta.servlet.http.HttpSession;
+=======
+>>>>>>> fd3a891263df14525f6d62a98ccb5a9e3d7047f7
 import vn.hoidanit.laptopshop.domain.Cart;
 import vn.hoidanit.laptopshop.domain.CartDetail;
 import vn.hoidanit.laptopshop.domain.Product;
@@ -44,7 +47,11 @@ public class ProductService {
         this.productRepository.deleteById(id);
     }
 
+<<<<<<< HEAD
     public void handleAddProductToCart(long productId, String email, HttpSession session) {
+=======
+    public void handleAddProductToCart(long productId, String email) {
+>>>>>>> fd3a891263df14525f6d62a98ccb5a9e3d7047f7
         User user = this.userService.getUserByEmail(email);
         if (user == null) {
             return;
@@ -53,13 +60,18 @@ public class ProductService {
         if (cart == null) {
             cart = new Cart();
             cart.setUser(user);
+<<<<<<< HEAD
             cart.setSum(0);
+=======
+            cart.setSum(1);
+>>>>>>> fd3a891263df14525f6d62a98ccb5a9e3d7047f7
             cart = this.cartRepository.save(cart);
         }
         Product product = this.getProductById(productId);
         if (product == null) {
             return;
         }
+<<<<<<< HEAD
         CartDetail currentCartDetail = this.cartDetailRepository.findByCartAndProduct(cart, product);
         if (currentCartDetail != null) {
             currentCartDetail.setQuantity(currentCartDetail.getQuantity() + 1);
@@ -85,4 +97,17 @@ public class ProductService {
     public Cart findCartByUser(User user) {
         return this.cartRepository.findByUser(user);
     }
+=======
+        CartDetail cartDetail = new CartDetail();
+        cartDetail.setCart(cart);
+        cartDetail.setProduct(product);
+        cartDetail.setPrice(product.getPrice());
+        cartDetail.setQuantity(1);
+        this.cartDetailRepository.save(cartDetail);
+        product.setQuantity(product.getQuantity() - 1);
+
+        this.productRepository.save(product);
+    }
+
+>>>>>>> fd3a891263df14525f6d62a98ccb5a9e3d7047f7
 }
