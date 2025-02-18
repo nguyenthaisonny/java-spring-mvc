@@ -63,7 +63,7 @@ public class ProductService {
         CartDetail currentCartDetail = this.cartDetailRepository.findByCartAndProduct(cart, product);
         if (currentCartDetail != null) {
             currentCartDetail.setQuantity(currentCartDetail.getQuantity() + 1);
-            currentCartDetail.setPrice(currentCartDetail.getPrice() + product.getPrice());
+            currentCartDetail.setPrice(currentCartDetail.getPrice());
             this.cartDetailRepository.save(currentCartDetail);
             product.setQuantity(product.getQuantity() - 1);
             this.productRepository.save(product);

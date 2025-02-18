@@ -68,6 +68,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <c:if test="${ empty cartDetails}">
+                                        <tr>
+                                            <td colspan="6">
+                                                There is no product in your cart.
+                                            </td>
+                                        </tr>
+                                    </c:if>
                                     <c:forEach var="cartDetail" items="${cartDetails}">
                                         <tr>
                                             <th scope="row">
@@ -100,7 +107,9 @@
                                                     </div>
                                                     <input type="text"
                                                         class="form-control form-control-sm text-center border-0"
-                                                        value="${cartDetail.quantity}">
+                                                        value="${cartDetail.quantity}"
+                                                        data-cart-detail-id="${cartDetail.id}"
+                                                        data-cart-detail-price="${cartDetail.price}">
                                                     <div class="input-group-btn">
                                                         <button
                                                             class="btn btn-sm btn-plus rounded-circle bg-light border">
@@ -110,8 +119,9 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="mb-0 mt-4">
-                                                    <fmt:formatNumber type="number" value="${cartDetail.price}" /> đ
+                                                <p class="mb-0 mt-4" data-cart-detail-id="${cartDetail.id}">
+                                                    <fmt:formatNumber type="number"
+                                                        value="${cartDetail.price * cartDetail.quantity}" /> đ
                                                 </p>
                                             </td>
                                             <td>
